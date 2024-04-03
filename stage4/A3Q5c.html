@@ -1,0 +1,77 @@
+{{ block title }}
+    Lottery
+{{ endblock }}
+{{ block content }}
+
+    <style>
+        .grid-container3 {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 1px;
+            padding: 10px;
+        }
+
+        .grid-container2 {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 1px;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+        }
+
+    </style>
+
+{{ if question.2 == 'no third option' }}
+
+    <div class="grid-container2">
+        <div class="grid-item">
+            <b>Option A</b><br>
+            {{ for outcome in question.0 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Option B</b><br>
+            {{ for outcome in question.1 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+
+    </div>
+
+{{ else }}
+
+    <div class="grid-container3">
+        <div class="grid-item">
+            <b>Option A</b><br>
+            {{ for outcome in question.0 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Option B</b><br>
+            {{ for outcome in question.1 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Option C</b><br>
+            {{ for outcome in question.2 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+
+    </div>
+
+{{ endif }}
+
+    {{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}

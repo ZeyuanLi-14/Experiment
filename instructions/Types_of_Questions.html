@@ -1,0 +1,122 @@
+{{ block title }}
+    Types of Questions
+{{ endblock }}
+{{ block content }}
+<p>
+    In the experiment, the colored circles will represent various lotteries. These lotteries can have any payments from $0 to $12, and can have any probabilities. Here is an example of a what that could look like:
+</p>
+
+{{ if player.participant.treatment }}
+
+<style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 1px;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+        }
+
+    </style>
+
+    <h4>Stage 1</h4>
+    <div class="grid-container">
+        <div class="grid-item">
+            <b>Option A</b><br>
+
+            30% chance of entering <b>Stage 2</b><br>
+            70% chance of $4<br>
+
+        </div>
+        <div class="grid-item">
+            <b>Option B</b><br>
+
+            40% chance of entering <b>Stage 2</b><br>
+            60% chance of $5<br>
+
+        </div>
+
+
+    </div>
+    <h4>Stage 2</h4>
+    <div class="grid-container">
+        <div class="grid-item">
+            <b>Option A</b><br>
+
+                50% chance of $5<br>
+                50% chance of $6<br>
+
+        </div>
+        <div class="grid-item">
+            <b>Option B</b><br>
+
+                40% chance of $6<br>
+                60% chance of $4<br>
+
+        </div>
+
+
+    </div>
+
+<p>
+    To visualize these lotteries, imagine you're picking apples from two baskets. In Basket A, out of 100 apples, picking any of the first 30 apples means you get to pick again for a second chance to earn the profit. The other 70 apples each give you $4 right away. If you pick again, half of these apples will get you $5, and the other half $6. In Basket B, it's slightly different. Here, if you pick one of the first 40 apples, you also get to pick again, while the last 60 apples each give you $5 immediately. On your second pick, 40 apples are worth $6 each, but the last 60 apples are worth $4 each. You choose one basket and pick one apple from the basket, which decides how much money you make. If this is the question to determine your payment, we would roll the dice and pay you according to which number is rolled.
+</p>
+
+{{ else }}
+
+<style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 1px;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+        }
+
+    </style>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <b>Option A</b><br>
+
+                40% chance of $10<br>
+                60% chance of $8
+
+        </div>
+        <div class="grid-item">
+            <b>Option B</b><br>
+
+                50% chance of $4<br>
+                50% chance of $6
+
+        </div>
+
+
+    </div>
+
+<p>
+    To visualize these lotteries, imagine you're picking apples from two baskets. In the first basket, for every 100 apples, 40 are golden and each golden apple wins you $10, while the 60 red apples get you $8. In the second basket, it's split evenly: 50 green apples give you $4 each, and the 50 yellow apples give you $6. You choose one basket and pick one apple from the basket, which decides how much money you make. If this is the question to determine your payment, we would roll the dice and pay you according to which number is rolled.
+</p>
+{{ endif }}
+
+<p>
+    You won’t know what the exact lotteries are while you’re making your decisions about the rules, but the lotteries are sufficiently varied. Some might be very risky, some are safe, some involve low payments, some high, etc. Therefore, when choosing your rules, you’ll want to select only rules which are always best for you. By selecting rules which are always best for you, you’ll get the option which is best for you without having to make the decision on your own. By not selecting rules which aren’t always best for you, you’ll ensure that you have the opportunity to pick your most preferred option in the cases where the rule wouldn’t be good for you.
+
+</p>
+
+    {{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}

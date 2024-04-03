@@ -1,0 +1,31 @@
+{{ block title }}
+    About the Rules
+{{ endblock }}
+{{ block content }}
+<p>
+In this part of the experiment, you will be presented with various decision “rules.” These rules are abstract ways to represent choices, and we are interested in how people perceive them. Your task is to evaluate various rules and decide whether you would want to implement choices using the rule or make choices yourself. <br><br>
+Remember, when you evaluate these rules, you should only be considering money payments, and only positive amounts (meaning you can’t lose money). A “rule” is like an algorithm that observes your initial choices and then figures out what to pick later based on those initial choices. You can choose to use various rules to make your choices, or you can choose to make each later choice on your own. <br><br>
+For example, here’s one possible rule:
+</p>
+<div style="text-align: center;">
+<img src="{% static 'images/Instruction1_1.png' %}" style="width: 70%; height: auto;" >
+   </div>
+<p>
+This rule establishes that, when given the choice between “black” and “white,” you chose “black.” Then, the rule says that if you were given the choice between “black” and “grey,” we would choose black for you.
+The colors don’t have any inherent meaning (e.g., grey is not “in between” black and white). They can represent any possible money amount or lottery. As a result, you probably wouldn’t want to select this rule.
+If you like black over white, whatever they may be, this doesn’t necessarily mean you’d like black over grey, since grey can represent any possible payment. Grey might be $12 and black might be $1!<br><br>
+    It’s worthwhile to make the choice on your own if the rule would not always be best for you, like in the example above. This way, if “grey” were $12, you could choose grey over black. If instead grey were $0, you’d be able to choose black.
+    </p>
+Some of the rules will involve “mixtures.” Here’s an example:<br><br>
+
+<div style="text-align: center;">
+<img src="{% static 'images/Instruction1_2.png' %}" style="width: 70%; height: auto;" >
+   </div>
+<p>
+This rule says that if you prefer black over grey, then you would prefer a mix of black and white to the same mix of grey and white.
+You can think of the mixtures like a spinner wheel. If the spinner wheel lands in the “white” region, you’d receive white. If it lands in the black (or grey) region, you’d receive black (or grey).
+</p>
+    {{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}

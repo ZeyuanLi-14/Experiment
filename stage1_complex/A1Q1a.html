@@ -1,0 +1,151 @@
+{{ block title }}
+    Lottery
+{{ endblock }}
+{{ block content }}
+
+    <style>
+        .grid-container3 {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 1px;
+            padding: 10px;
+        }
+
+        .grid-container2 {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 1px;
+            padding: 10px;
+        }
+
+        .header {
+            grid-column: 1 / -1; /* Span all columns */
+            background-color: #f1f1f1;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        .header3 {
+            grid-column: 1 / span 3;
+        }
+
+        .grid-item {
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+        }
+
+    </style>
+
+{{ if question.2 == 'no third option' }}
+    <h4>Stage 1</h4>
+    <div class="grid-container2">
+
+        <div class="grid-item">
+            <b>Option A</b><br>
+            {{ for outcome in question.0 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Option B</b><br>
+            {{ for outcome in question.1 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+
+    </div>
+    <h4>Stage 2</h4>
+    <div class="grid-container2">
+        <div class="grid-item">
+            <b>Option A</b><br>
+            {{ for outcome in question.3 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Option B</b><br>
+            {{ for outcome in question.4 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+
+
+    </div>
+
+{{ else }}
+
+    <h4>Stage 1</h4>
+    <div class="grid-container3">
+        <div class="grid-item">
+
+            <b>Option A</b><br>
+            {{ for outcome in question.0 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Option B</b><br>
+            {{ for outcome in question.1 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Option C</b><br>
+            {{ for outcome in question.2 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+
+    </div>
+    <h4>Stage 2</h4>
+    <div class="grid-container3">
+        <div class="grid-item">
+            <b>Option A</b><br>
+            {{ for outcome in question.3 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Option B</b><br>
+            {{ for outcome in question.4 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Option C</b><br>
+            {{ for outcome in question.5 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+
+    </div>
+
+{{ endif }}
+
+
+    {{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}

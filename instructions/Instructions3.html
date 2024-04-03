@@ -1,0 +1,21 @@
+{{ block title }}
+    About Payment
+{{ endblock }}
+{{ block content }}
+<p>
+Along with all decisions you make in this experiment, each of your rule decisions is equally likely to be chosen as the bonus, and we will roll the dice at the end of the experiment to determine which decision will be paid. If one of the rules is the randomly selected question to determine your payment, here’s how we would pay you. Each rule corresponds to some specific lottery questions. If you selected to make the choice on your own, you will be shown the lottery question(s) and you will make the choice on your own. If you selected to implement your choices using the rule, we will make the choice for you based on what the rule says. You will be paid based on the lottery chosen, either by you or by the rule. <br><br>
+For example, imagine you are being paid based on the following rule:
+</p>
+<div style="text-align: center;">
+<img src="{% static 'images/Instruction1_3.png' %}" style="width: 70%; height: auto;" >
+   </div>
+
+There would be two lotteries corresponding to “black” and “grey.” Remember, these lotteries could be anything, but let’s say the two lotteries were:<br><br>
+1. 100% chance of $12<br><br>
+2. 75% chance of $20, 25% chance of $10 <br><br>
+Let’s say you prefer option 2 (75% chance of $20, 25% chance of $10), so think of this as “black” and the other (100% chance of $12) as “grey.” In this case, you preferred black over grey, as the rule assumes. Then, the rule says we will pay you “black & white” instead of “grey.” The white lottery also could be anything, say it’s 100% chance of $5. Then we would pay you “black & white,” or 75% chance of $20, 25% chance of $10, as well as 100% chance of $5, instead of “grey,” which would have been 100% chance of $12. If you hadn’t selected this rule, you would make the choice of black + white vs. grey on your own.<br><br>
+
+    {{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}
