@@ -1,0 +1,21 @@
+{{ block title }}
+    About Payment
+{{ endblock }}
+{{ block content }}
+<p>
+Every decision, including your rule choices, has an equal chance to be selected for your bonus payment at the experiment's end. If a rule you chose is selected, it applies to certain lottery questions. If you've decided to make choices yourself, you'll see the lottery question and choose on your own. If you've opted for the rule to decide, we'll follow that rule to make the choice for you. Your payment depends on the lottery outcome, chosen either by you or through the rule.  <br><br>
+For example, imagine you are being paid based on the following rule:
+</p>
+<div style="text-align: center;">
+<img src="{% static 'images/Instruction1_3.png' %}" style="width: 70%; height: auto;" >
+   </div>
+
+There would be two lotteries corresponding to “black” and “grey.” Remember, these lotteries could be anything, but let’s say the two lotteries were:<br><br>
+1. 100% chance of $12<br><br>
+2. 75% chance of $20, 25% chance of $10 <br><br>
+Imagine you choose option 2, called 'black,' over another option (100% chance of $12) named 'grey.' According to the rule, if you prefer 'black' to 'grey,' you get a combined option of 'black & white' instead of just 'grey.' Let's say 'white' is a 100% chance of $5. So, the rule offers you a mix: 75% chance of $20, 25% chance of $10, plus a 100% chance of $5, rather than the guaranteed $12 ('grey'). Without this rule, you'd directly choose between 'black & white' and 'grey'.<br><br>
+
+    {{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}

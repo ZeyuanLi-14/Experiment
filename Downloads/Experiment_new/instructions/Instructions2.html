@@ -1,0 +1,21 @@
+{{ block title }}
+    About the Rules
+{{ endblock }}
+{{ block content }}
+<body>
+   <p>In this part, you're going to look at decision "rules" - basically, a strategy for making choices. You'll decide if you want to use these strategies for future decisions or if you'd rather pick yourself every time. These rules take your past decisions and use them to make new ones for you. </p>
+    <p>Here's a quick example: a rule might suggest if you picked "black" over "white" once, you'll always do the same, even if "grey" comes into play next. Remember, the colors are just stand-ins for different amounts of money. They can represent any possible money amount or lottery, but only for positive money amount. As a result, you probably wouldn’t want to select this rule.
+If you like black over white, whatever they may be, this doesn’t necessarily mean you’d like black over grey. Grey might be $12 and black might be $1!</p>
+    <div style="text-align: center;">
+        <img src="{% static 'images/Instruction1_1.png' %}" style="width: 70%; height: auto;">
+    </div>
+    <p>This example demonstrates that making your own choice might be smarter if a rule doesn't always work in your favor, allowing you to pick based on the real value each color represents.</p>
+    <p>Some rules mix things up, kind of like a game spinner deciding your outcome based on where it lands.</p>
+    <div style="text-align: center;">
+        <img src="{% static 'images/Instruction1_2.png' %}" style="width: 70%; height: auto;">
+
+    </div>
+   <p>This rule says that if you prefer black over grey, then you would prefer a mix of black and white to the same mix of grey and white. For example, imagine black and grey are both lotteries (remember, they can be any lottery), and imagine white is $10. If the spinner lands in the white region (which happens with probability 1⁄4), you would receive $10. If it lands in the black or grey region (which happens with probability 3⁄4), you would receive the original black or grey lottery.</p>
+    {{ formfields }}
+    {{ next_button }}
+{{ endblock }}

@@ -1,0 +1,39 @@
+{{ block title }}
+    Lotteries and Payment
+{{ endblock }}
+{{ block content }}
+
+<p>
+In the next phase of the experiment, you'll choose between different "lotteries," just like earlier. Each lottery has defined odds for specific payouts. For instance, one might offer an 80% chance of winning $18, a 10% chance for $7, and 10% for $4, while another could guarantee $13.
+</p>
+
+<p>
+   You'll be shown two or three lotteries on your screen, with their payout amounts and chances displayed in a table. Simply pick the lottery you prefer, and the computer will note your choice before moving to the next screen.
+</p>
+
+<p>
+   Each choice is made on a new screen. Like all your choices in this experiment, any of your lottery selections might be chosen for payment at the end. We'll use a dice roll to decide which choice gets paid at the experiment's conclusion.
+
+</p>
+
+
+
+
+<p>
+    For example, in the randomly selected problem, imagine you chose the lottery which gives
+    <div style="text-align: center;">
+30% chance of $0<br><br>
+50% chance of $11.50<br><br>
+20% chance of $17<br><br>
+</div>
+<p>Let's say we randomly generate a number from 1 to 100 to determine the payoff:</p>
+If we roll a number 1—30, you’d receive $0. This corresponds to a 30% chance of $0.<br><br>
+If we roll a number 31—80, you’d receive $11.50. This corresponds to a 50% chance of $11.50.<br><br>
+If we roll a number 81—100, you’d receive $17. This corresponds to a 20% chance of $17.<br><br>
+
+</p>
+
+{{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}

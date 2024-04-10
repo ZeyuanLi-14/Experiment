@@ -1,0 +1,126 @@
+{{ block title }}
+    Types of Questions
+{{ endblock }}
+{{ block content }}
+<p>
+    In the experiment, the colored circles will represent various lotteries. These lotteries can have any payments from $0 to $12, and can have any probabilities. Here is an example of a what that could look like:
+</p>
+
+<style>
+        .grid-container3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            grid-column-gap: 10px;
+        }
+
+        .grid-container2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            grid-column-gap: 10px;
+        }
+
+        .grid-item {
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .grid-item-heading {
+            background-color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 12pt;
+            font-weight: bold;
+            border: 1px solid #ccc;
+        }
+
+
+    </style>
+
+{{ if player.participant.treatment }}
+
+    <div class="grid-container2">
+        <div class="grid-item-heading">Option A</div>
+        <div class="grid-item-heading">Option B</div>
+        <div class="grid-item">
+            <b>Stage 1</b><br>
+
+            30% chance of entering <b>Stage 2</b><br>
+            70% chance of $4<br>
+
+        </div>
+        <div class="grid-item">
+            <b>Stage 1</b><br>
+
+            40% chance of entering <b>Stage 2</b><br>
+            60% chance of $5<br>
+
+        </div>
+                <div class="grid-item">
+            <b>Stage 2</b><br>
+
+                50% chance of $5<br>
+                50% chance of $6<br>
+
+        </div>
+        <div class="grid-item">
+            <b>Stage 2</b><br>
+
+                40% chance of $6<br>
+                60% chance of $4<br>
+
+        </div>
+
+
+    </div>
+<br>
+
+
+<p>
+  To visualize these lotteries, imagine that a random number is generated from 1 to 100 every time you realize a lottery. In Option A, having the number 1-30 lets you pick again, while having 31-100 instantly wins you $4. On a second pick, you have a 50/50 chance of winning $5 or $6. Option B is slightly different: having 1-40 gives you another pick, and having 41-100 wins you $5 straight away. For the second pick in Option B, having 1-40 wins you $6, but having 41-100 wins you $4.
+</p>
+
+{{ else }}
+
+
+    <div class="grid-container2">
+        <div class="grid-item">
+            <b>Option A</b><br>
+
+                40% chance of $10<br>
+                60% chance of $8
+
+        </div>
+        <div class="grid-item">
+            <b>Option B</b><br>
+
+                50% chance of $4<br>
+                50% chance of $6
+
+        </div>
+
+    </div>
+<br>
+
+<p>
+
+    To visualize these lotteries, imagine that a random number is generated from 1 to 100 every time you realize a lottery. In Option A, having the number 1-40 lets you win $10, while having 41-100 lets you win $8. Option B is slightly different: you have a 50/50 chance of winning $4 or $6.
+</p>
+{{ endif }}
+
+<p>
+    Without knowing the specific lotteries in advance, you'll face a mix of risk levels and payout sizes. Choose rules that consistently benefit you, ensuring optimal outcomes without individual decisions. Avoiding less favorable rules guarantees the chance to select the best option for you.
+
+</p>
+
+    {{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,619 @@
+{{ block title }}
+    Inconsistency
+{{ endblock }}
+{{ block content }}
+
+<div style="text-align: center;">
+    <img src="{{ static rule }}" style="width: 70%; height: auto;" >
+</div>
+
+    <style>
+        .grid-container3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            grid-column-gap: 10px;
+        }
+
+        .grid-container2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            grid-column-gap: 10px;
+        }
+
+        .grid-item {
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .grid-item-heading {
+            background-color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 12pt;
+            font-weight: bold;
+            border: 1px solid #ccc;
+        }
+
+        .highlight {
+            background-color: #ffb6c1;
+        }
+    </style>
+
+<!--first question-->
+<h3 style="text-align: center">First Decision</h3>
+
+{{ if question_a.2 == 'no third option' }}
+
+<!--stage 1-->
+    <div class="grid-container2">
+        <div class="grid-item-heading">Option A</div>
+        <div class="grid-item-heading">Option B</div>
+        {{ if answer_a == "A" }}
+        <div class="grid-item highlight">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_a.0 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_a.1 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+
+        {{ elif answer_a == 'B' }}
+        <div class="grid-item">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_a.0 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        <div class="grid-item highlight">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_a.1 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        {{ endif }}
+
+<!--        stage 2-->
+        {{ if answer_a == 'A' }}
+        <div class="grid-item highlight">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_a.3 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_a.4 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        {{ elif answer_a == 'B' }}
+        <div class="grid-item">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_a.3 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item highlight">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_a.4 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        {{ endif }}
+    </div>
+
+
+
+{{ else }}
+
+<!--stage 1-->
+    <div class="grid-container3">
+        <div class="grid-item-heading">Option A</div>
+        <div class="grid-item-heading">Option B</div>
+        <div class="grid-item-heading">Option C</div>
+        {{ if answer_a == "A" }}
+        <div class="grid-item highlight">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_a.0 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_a.1 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_a.2 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+
+        {{ elif answer_a == 'B' }}
+        <div class="grid-item">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_a.0 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        <div class="grid-item highlight">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_a.1 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_a.2 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+
+        {{ else }}
+        <div class="grid-item">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_a.0 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_a.1 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        <div class="grid-item highlight">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_a.2 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        {{ endif }}
+
+<!--        stage 2-->
+        {{ if answer_a == 'A' }}
+        <div class="grid-item highlight">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_a.3 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_a.4 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_a.5 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        {{ elif answer_a == 'B' }}
+        <div class="grid-item">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_a.3 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item highlight">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_a.4 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_a.5 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        {{ else }}
+        <div class="grid-item">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_a.3 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_a.4 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item highlight">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_a.5 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        {{ endif }}
+
+    </div>
+
+{{ endif }}
+<br>
+
+<!--second question-->
+<h3 style="text-align: center">Second Decision</h3>
+
+{{ if question_b.2 == 'no third option' }}
+
+<!--stage 1-->
+    <div class="grid-container2">
+        <div class="grid-item-heading">Option B</div>
+        <div class="grid-item-heading">Option C</div>
+        {{ if answer_b == "B" }}
+        <div class="grid-item highlight">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_b.0 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_b.1 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+
+        {{ elif answer_b == 'C' }}
+        <div class="grid-item">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_b.0 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        <div class="grid-item highlight">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_b.1 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        {{ endif }}
+
+<!--        stage 2-->
+        {{ if answer_b == 'B' }}
+        <div class="grid-item highlight">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_b.3 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_b.4 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        {{ elif answer_b == 'C' }}
+        <div class="grid-item">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_b.3 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item highlight">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_b.4 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        {{ endif }}
+    </div>
+
+
+{{ else }}
+
+<!--this is old (but unused) -->
+    <h4>Stage 1</h4>
+    <div class="grid-container3">
+        {{ if answer_b == "A" }}
+        <div class="grid-item highlight">
+            <b>Option A</b><br>
+            {{ for outcome in question_a.0 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        {{ else }}
+        <div class="grid-item">
+            <b>Option A</b><br>
+            {{ for outcome in question_a.0 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        {{ endif }}
+
+        {{ if answer_b == "B" }}
+        <div class="grid-item highlight">
+            <b>Option B</b><br>
+            {{ for outcome in question_a.1 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        {{ else }}
+        <div class="grid-item">
+            <b>Option B</b><br>
+            {{ for outcome in question_a.1 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        {{ endif }}
+        {{ if answer_b == "C" }}
+        <div class="grid-item highlight">
+            <b>Option C</b><br>
+            {{ for outcome in question_a.2 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        {{ else }}
+        <div class="grid-item">
+            <b>Option C</b><br>
+            {{ for outcome in question_a.2 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        {{ endif }}
+
+    </div>
+    <h4>Stage 2</h4>
+    <div class="grid-container3">
+        {{ if answer_b == 'A' }}
+        <div class="grid-item highlight">
+            <b>Option A</b><br>
+            {{ for outcome in question_a.3 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+            {{ else }}
+        <div class="grid-item">
+            <b>Option A</b><br>
+            {{ for outcome in question_a.3 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        {{ endif }}
+
+        {{ if answer_b == 'B' }}
+        <div class="grid-item highlight">
+            <b>Option B</b><br>
+            {{ for outcome in question_a.4 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+            {{ else }}
+        <div class="grid-item">
+            <b>Option B</b><br>
+            {{ for outcome in question_a.4 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        {{ endif }}
+        {{ if answer_b == 'C' }}
+        <div class="grid-item highlight">
+            <b>Option C</b><br>
+            {{ for outcome in question_a.5 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+            {{ else }}
+        <div class="grid-item">
+            <b>Option C</b><br>
+            {{ for outcome in question_a.5 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        {{ endif }}
+
+    </div>
+{{ endif }}
+
+<br>
+<!--third question-->
+<h3 style="text-align: center">Third Decision</h3>
+
+<!--stage 1-->
+    <div class="grid-container2">
+        <div class="grid-item-heading">Option A</div>
+        <div class="grid-item-heading">Option C</div>
+        {{ if answer_c == "A" }}
+        <div class="grid-item highlight">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_c.0 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_c.1 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+
+        {{ elif answer_c == 'C' }}
+        <div class="grid-item">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_c.0 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        <div class="grid-item highlight">
+            <b>Stage 1</b><br>
+            {{ for outcome in question_c.1 }}
+            {{ if outcome.1 == 'Stage 2' }}
+            {{ outcome.0 }}% chance of entering <b>Stage 2</b><br>
+            {{ else }}
+            {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endif }}
+            {{ endfor }}
+        </div>
+        {{ endif }}
+
+<!--        stage 2-->
+        {{ if answer_c == 'A' }}
+        <div class="grid-item highlight">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_c.3 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_c.4 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        {{ elif answer_c == 'C' }}
+        <div class="grid-item">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_c.3 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        <div class="grid-item highlight">
+            <b>Stage 2</b><br>
+            {{ for outcome in question_c.4 }}
+                {{ outcome.0 }}% chance of ${{ outcome.1}}<br>
+            {{ endfor }}
+        </div>
+        {{ endif }}
+    </div>
+
+
+
+
+
+<br>
+<p>
+    Your choices were inconsistent with this rule.
+</p>
+<p>
+    Here, we changed the labels of the lotteries to make it clear that Options A, B, and C are recurring across the three decisions. In the first decision, you chose Option {{ answer_a }}, and in the second decision, you chose Option {{ answer_b }}. However, in the third decision, you chose Option {{ answer_c }}.
+    This rule states that if Option A is chosen over Option B, and Option B is chosen over Option C, then Option A will be chosen over Option C. So, given you chose Options {{ answer_a }} and {{ answer_b }} in the first two decisions, the rule would prescribe choosing Option{{ if answer_c == 'C' }} A {{ else }} C {{ endif }}.
+</p>
+
+
+    {{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}
