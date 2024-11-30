@@ -1,4 +1,4 @@
-# Experiment Overview (updated)
+# Experiment Overview (Pilot Version)
 
 This experiment is designed to explore decision-making processes under varying levels of complexity, focusing on the alignment between individuals' choices and microeconomic axioms. The experiment consists of four stages, incorporating two treatments that differ in the complexity of questions posed to participants. Here's a breakdown of the experiment's structure:
 
